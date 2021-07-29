@@ -34,3 +34,5 @@ Ta thấy có bug bof ở hàm read khi input nhận vào tối đa là 0x200(51
 Vậy ý tưởng của ta ở đây sẽ là:
     
 Dùng bug fmt để leak canary nhầm bypass hàm kiểm tra canary, sau đó dùng bof để control ret, ở đây mình dùng ret2libc nhé.
+     
+Để leak canary sau khi debug mình thấy chỉ cần overflow byte null của canary thì chương trình sẽ in ra cho ta.
