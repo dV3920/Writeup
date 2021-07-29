@@ -61,19 +61,22 @@
     puts("Go away hacker.");
     exit(-1);
 Như bài trước chương trình cho ta nhập index và thay đổi từ ở vị trí đó, nhưng bài này sẽ check index có lớn hơn 15 hay không. Nếu có thì break, nếu bằng thì có 3 lựa chọn nhưng không kiểm tra index có bé hơn 0 hay không.</h3>
-   <h4> 
-   int admire()
-    {
-      puts("AMAZING STRING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :rooPOG: :rooYay:");
-      return puts(target);
-    }
-    char *del()
-    {
-      return strcpy(target, "***************");
-    }
-    void __noreturn exit(int status)
-    {
-      exit(status);
-    } 
+      <h4> 
+         
+      int admire()
+       {
+         puts("AMAZING STRING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :rooPOG: :rooYay:");
+         return puts(target);
+       }
+       char *del()
+       {
+         return strcpy(target, "***************");
+       }
+       void __noreturn exit(int status)
+       {
+         exit(status);
+       }
+
+Do cơ chế Partial RELRO là bảng GOT sẽ nằm ở dưới vùng BSS, mà ta có thể nhập index < 0 nên có thể ghi đè GOT, ý tưởng là ta sẽ ghi đè got của strcpy thành plt printf sau đó nhập string là %x$p rồi gọi hàm del để xuất hiện bug fmt để leak base, sau khi có base tính one_gadget và ghi đè got strcpy thành one_gadget rồi gọi hàm del là lên được shell.
     
     
