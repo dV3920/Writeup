@@ -16,7 +16,6 @@
     Main
     char v3; // [rsp+Fh] [rbp-11h] BYREF
     __int64 v4[2]; // [rsp+10h] [rbp-10h] BYREF
-
     v4[1] = __readfsqword(0x28u);
     setvbuf(_bss_start, 0LL, 2, 0LL);
     setvbuf(stdin, 0LL, 2, 0LL);
@@ -61,9 +60,9 @@
     }
     puts("Go away hacker.");
     exit(-1);
-<h3>Như bài trước chương trình cho ta nhập index và thay đổi từ ở vị trí đó, nhưng bài này sẽ check index có lớn hơn 15 hay không. Nếu có thì break, nếu bằng thì có 3 lựa chọn nhưng không kiểm tra index có bé hơn 0 hay không.</h3>
+Như bài trước chương trình cho ta nhập index và thay đổi từ ở vị trí đó, nhưng bài này sẽ check index có lớn hơn 15 hay không. Nếu có thì break, nếu bằng thì có 3 lựa chọn nhưng không kiểm tra index có bé hơn 0 hay không.</h3>
    <h4> 
-    int admire()
+   int admire()
     {
       puts("AMAZING STRING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :rooPOG: :rooYay:");
       return puts(target);
@@ -75,6 +74,6 @@
     void __noreturn exit(int status)
     {
       exit(status);
-    }
+    } 
     
     
