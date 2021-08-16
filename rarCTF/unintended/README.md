@@ -154,7 +154,8 @@ This totally has effect on the actual challenges!
 
         - Nói nôm na là chunk này sẽ bao gồm chunk kia:
 
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d684425d-0d61-47cc-be1d-a41b67fc467e/Untitled.png)
+       ![Untitled](https://user-images.githubusercontent.com/88095613/129510700-8da6b3a2-e557-45c6-8faf-38a1af8fcea4.png)
+
 
         - Nếu ta edit toàn bộ chunk 1 thì chunk 2 sẽ edit theo, nếu edit chunk 2 thì 1 phần chunk 1 sẽ edit theo.
         - Giờ ví dụ để overwrite malloc hook thì ta cần overlapp chunk 1 lúc này chunk 1 bao gồm chunk 2, sau đó free chunk 2 thì data của chunk 2 sẽ là fd trong bin. Sau đó tính toán và edit chunk 1 sao cho tới phần data của chunk 2(fd) cho nó bằng địa chỉ của malloc_hook ⇒ Vậy là lúc này trong bin fd chunk 2 sẽ trỏ đến malloc hook nên ta có thể edit malloc_hook sau khi add thêm 2 chunk cùng size chunk 2.
