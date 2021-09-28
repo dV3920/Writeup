@@ -5,7 +5,7 @@ ductfnote: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically l
 ```
 
 ```c
-		Arch:     amd64-64-little
+    Arch:     amd64-64-little
     RELRO:    Full RELRO
     Stack:    No canary found
     NX:       NX enabled
