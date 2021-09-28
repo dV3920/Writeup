@@ -610,7 +610,7 @@ pwndbg> x/20xg 0x5555555592b0-0x20
                 NX:       NX enabled
                 PIE:      PIE enabled
             [*] leak: 0x7fd4e29eebe0
-            [*] leak: 0x7fd4e2803000
+            [*] Base: 0x7fd4e2803000
             [*] One_gadget: 0x7fd4e28e9c81
             [*] Switching to interactive mode
             
