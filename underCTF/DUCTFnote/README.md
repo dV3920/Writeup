@@ -201,7 +201,7 @@ pwndbg> x/20xg 0x5555555592b0-0x20
 
 ```
 
-- Tiếp đến delete chunk trên đưa nó vào tcache bin 0x390
+- Tiếp đến delete chunk trên đưa nó vào tcache bin 0x190
     
     ```python
     pwndbg> bin
