@@ -150,9 +150,9 @@ pwndbg> x/10xg 0x5555555580a0
 
 ```python
 [+] Opening connection to pwn-2021.duc.tf on port 31907: Done
-[*] number: 0x55b06bd67024
-[*] pie: 0x55b06bd65000
-[*] bin_sh: 0x55b06bd670a3
+[*] leak: 0x556b03e2b024
+[*] pie: 0x556b03e29000
+[*] bin_sh: 0x556b03e2b0a3
 [*] Switching to interactive mode
 $ cat flag.txt
 DUCTF{whats_in_a_name?_5aacfc58}
