@@ -53,7 +53,7 @@ write-what-where: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamical
 
 # Exploit
 
-- Mình sẽ write got_exit về puts("write"); để mình có thể write got_setvbuf thành plt_puts  và stdin thành got_puts sau khi ghi xong mình sẽ write got_exit về lại đầu main để nó chạy qua hàm init và leak libc cho mình.
+- Mình sẽ write got_exit về puts("write");(không gọi init) để mình có thể write got_setvbuf thành plt_puts và stdin thành got_puts sau khi ghi xong mình sẽ write got_exit về lại đầu main để nó chạy qua hàm init và leak libc cho mình.
 - Do mỗi lần chỉ ghi được 4 byte nên mình có thể ghi 2 lần 1 lần 4 bytes đầu rồi lần 2 là 4 bytes sau.
 - Sau khi leak được libc mình sẽ write lại stdin để không bị lỗi rồi sau đó tính system và write 4 bytes cuối của atoi thành 4 bytes cuối của system lúc này mình chỉ cần nhập input là "/bin/sh\x00" thì khi đến atoi nó sẽ là system("/bin/sh") và get shell.
     
